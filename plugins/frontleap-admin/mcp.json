@@ -1,13 +1,7 @@
 {
   "mcpServers": {
-    "frontleap-dev-admin": {
-      "url": "${FRONTLEAP_DEV_URL}/mastra/api/mcp/admin/mcp"
-    },
-    "frontleap-qa-admin": {
-      "url": "${FRONTLEAP_QA_URL}/mastra/api/mcp/admin/mcp"
-    },
-    "frontleap-prod-admin": {
-      "url": "${FRONTLEAP_PROD_URL}/mastra/api/mcp/admin/mcp"
+    "frontleap-admin": {
+      "url": "${FRONTLEAP_URL}/mastra/api/mcp/admin/mcp"
     }
   }
 }

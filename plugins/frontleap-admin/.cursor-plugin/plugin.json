@@ -1,7 +1,7 @@
 {
   "name": "frontleap-admin",
   "version": "1.0.0",
-  "description": "Frontleap Platform Admin MCP servers across development, QA, and production environments.",
+  "description": "Frontleap Platform Admin MCP server for a single Frontleap origin (Clerk OAuth at connect).",
   "author": {
     "name": "Thomas Laberge",
     "email": "thomas.laberge@frontleap.com"
@@ -17,26 +17,14 @@
   "variables": {
     "type": "object",
     "properties": {
-      "FRONTLEAP_DEV_URL": {
+      "FRONTLEAP_URL": {
         "type": "string",
-        "title": "Frontleap development origin",
-        "description": "Public origin for the development Frontleap app (scheme + host only, no path, no trailing slash). The plugin appends the fixed MCP path."
-      },
-      "FRONTLEAP_QA_URL": {
-        "type": "string",
-        "title": "Frontleap QA origin",
-        "description": "Public origin for the QA Frontleap app (scheme + host only, no path, no trailing slash). The plugin appends the fixed MCP path."
-      },
-      "FRONTLEAP_PROD_URL": {
-        "type": "string",
-        "title": "Frontleap production origin",
-        "description": "Public origin for the production Frontleap app (scheme + host only, no path, no trailing slash). The plugin appends the fixed MCP path."
+        "title": "Frontleap origin",
+        "description": "Public origin for the Frontleap app you are using (scheme + host only, no path, no trailing slash). The plugin appends the fixed admin MCP path."
       }
     },
     "required": [
-      "FRONTLEAP_DEV_URL",
-      "FRONTLEAP_QA_URL",
-      "FRONTLEAP_PROD_URL"
+      "FRONTLEAP_URL"
     ]
   },
   "mcpServers": "./mcp.json"

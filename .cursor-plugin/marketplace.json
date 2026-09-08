@@ -6,7 +6,7 @@
     "email": "thomas.laberge@frontleap.com"
   },
   "metadata": {
-    "description": "Frontleap Cursor plugins (MCP servers for admin and client across environments)",
+    "description": "Frontleap Cursor plugins (admin and client MCP servers)",
     "version": "1.0.0",
     "pluginRoot": "plugins"
   },
@@ -14,12 +14,12 @@
     {
       "name": "frontleap-admin",
       "source": "frontleap-admin",
-      "description": "Frontleap Platform Admin MCP servers for development, QA, and production"
+      "description": "Frontleap Platform Admin MCP server for a single Frontleap origin"
     },
     {
       "name": "frontleap-client",
       "source": "frontleap-client",
-      "description": "Frontleap Task Configuration (client) MCP servers for development, QA, and production"
+      "description": "Frontleap Task Configuration (client) MCP server for a single Frontleap origin"
     }
   ]
 }
