@@ -1,6 +1,6 @@
 {
   "name": "frontleap-qa-admin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Frontleap Platform Admin MCP server for a QA Frontleap origin (Clerk OAuth at connect).",
   "author": {
     "name": "Thomas Laberge",
@@ -25,10 +25,22 @@
         "examples": [
           "https://slug.frontleap.com"
         ]
+      },
+      "OAUTH_CLIENT_ID": {
+        "type": "string",
+        "title": "OAuth client ID",
+        "description": "Static OAuth 2.0 client ID for Clerk MCP connect (set in Plugins -> Configure; not stored in the repo)."
+      },
+      "OAUTH_CLIENT_SECRET": {
+        "type": "string",
+        "title": "OAuth client secret",
+        "description": "Static OAuth 2.0 client secret for Clerk MCP connect (set in Plugins -> Configure; not stored in the repo)."
       }
     },
     "required": [
-      "FRONTLEAP_URL"
+      "FRONTLEAP_URL",
+      "OAUTH_CLIENT_ID",
+      "OAUTH_CLIENT_SECRET"
     ]
   },
   "mcpServers": "./mcp.json"
