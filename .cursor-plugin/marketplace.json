@@ -1,0 +1,20 @@
+{
+  "name": "frontleap-cursor-plugin",
+  "displayName": "Frontleap",
+  "owner": {
+    "name": "Frontleap",
+    "email": "thomas.laberge@frontleap.com"
+  },
+  "metadata": {
+    "description": "Frontleap Cursor plugins (MCP servers for admin/client across environments)",
+    "version": "1.0.0",
+    "pluginRoot": "plugins"
+  },
+  "plugins": [
+    {
+      "name": "frontleap",
+      "source": "frontleap",
+      "description": "Frontleap MCP servers for admin and client across development, QA, and production"
+    }
+  ]
+}
