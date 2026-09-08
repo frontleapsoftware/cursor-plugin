@@ -3,20 +3,11 @@
     "frontleap-dev-admin": {
       "url": "${FRONTLEAP_DEV_URL}/mastra/api/mcp/admin/mcp"
     },
-    "frontleap-dev-client": {
-      "url": "${FRONTLEAP_DEV_URL}/mastra/api/mcp/client/mcp"
-    },
     "frontleap-qa-admin": {
       "url": "${FRONTLEAP_QA_URL}/mastra/api/mcp/admin/mcp"
     },
-    "frontleap-qa-client": {
-      "url": "${FRONTLEAP_QA_URL}/mastra/api/mcp/client/mcp"
-    },
     "frontleap-prod-admin": {
       "url": "${FRONTLEAP_PROD_URL}/mastra/api/mcp/admin/mcp"
-    },
-    "frontleap-prod-client": {
-      "url": "${FRONTLEAP_PROD_URL}/mastra/api/mcp/client/mcp"
     }
   }
 }

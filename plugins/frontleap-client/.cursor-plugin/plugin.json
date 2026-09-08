@@ -1,7 +1,7 @@
 {
-  "name": "frontleap",
+  "name": "frontleap-client",
   "version": "1.0.0",
-  "description": "Frontleap MCP servers for admin and client across development, QA, and production environments.",
+  "description": "Frontleap Task Configuration (client) MCP servers across development, QA, and production environments.",
   "author": {
     "name": "Thomas Laberge",
     "email": "thomas.laberge@frontleap.com"
@@ -11,7 +11,8 @@
   "license": "Apache-2.0",
   "keywords": [
     "frontleap",
-    "mcp"
+    "mcp",
+    "client"
   ],
   "variables": {
     "type": "object",
