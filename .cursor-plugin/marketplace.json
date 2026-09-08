@@ -1,5 +1,6 @@
 {
   "name": "frontleap-cursor-plugin",
+  "displayName": "Frontleap",
   "owner": {
     "name": "Frontleap",
     "email": "thomas.laberge@frontleap.com"
