@@ -40,7 +40,7 @@ Rules that matter for discovery:
 2. Use: `https://github.com/frontleapsoftware/cursor-plugin`
 3. Cursor should detect **6 plugins** (admin + client × production / development / QA)
 4. After merging marketplace changes, **Refresh** the marketplace (or re-import) so `marketplace.json` is rescanned
-5. Install the plugins for the environments you need, set one origin per plugin, then connect (Clerk OAuth)
+5. Install the plugins for the environments you need, set one origin plus OAuth client ID/secret per plugin (Plugins → Configure), then connect (Clerk OAuth)
 
 If you previously installed an older multi-environment Frontleap plugin, uninstall it and install the environment-specific admin and/or client plugins instead.
 
@@ -59,7 +59,7 @@ You can install any combination. Each plugin asks for a single `FRONTLEAP_URL` o
 
 ## Plugin: frontleap-admin (production)
 
-One HTTP MCP server. Auth is Clerk OAuth at connect time — no tokens or secrets in this repo.
+One HTTP MCP server. Auth is Clerk OAuth at connect time using static client credentials from plugin variables — no tokens or secrets in this repo.
 
 | Server | URL |
 | --- | --- |
@@ -67,7 +67,7 @@ One HTTP MCP server. Auth is Clerk OAuth at connect time — no tokens or secret
 
 ## Plugin: frontleap-client (production)
 
-One HTTP MCP server. Auth is Clerk OAuth at connect time — no tokens or secrets in this repo.
+One HTTP MCP server. Auth is Clerk OAuth at connect time using static client credentials from plugin variables — no tokens or secrets in this repo.
 
 | Server | URL |
 | --- | --- |
@@ -99,11 +99,15 @@ One HTTP MCP server. Auth is Clerk OAuth at connect time — no tokens or secret
 
 ### Configure
 
-Set one origin per installed plugin (scheme + host only, no path, no trailing slash), for example:
+In **Plugins → Configure**, set these variables per installed plugin (values stay in the dashboard; they are not committed):
 
-- `FRONTLEAP_URL` → `https://slug.frontleap.com`
+| Variable | Purpose |
+| --- | --- |
+| `FRONTLEAP_URL` | Origin only (scheme + host, no path, no trailing slash), e.g. `https://slug.frontleap.com` |
+| `OAUTH_CLIENT_ID` | Static Clerk OAuth client ID for MCP connect |
+| `OAUTH_CLIENT_SECRET` | Static Clerk OAuth client secret for MCP connect |
 
-Point each plugin at the matching environment origin. Do not commit real customer hostnames or secrets.
+Point each plugin at the matching environment origin and OAuth app. Do not commit real customer hostnames or secrets.
 
 ## License
 

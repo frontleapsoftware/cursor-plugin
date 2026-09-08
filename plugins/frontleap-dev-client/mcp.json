@@ -1,7 +1,11 @@
 {
   "mcpServers": {
     "frontleap-dev-client": {
-      "url": "${FRONTLEAP_URL}/mastra/api/mcp/client/mcp"
+      "url": "${FRONTLEAP_URL}/mastra/api/mcp/client/mcp",
+      "auth": {
+        "CLIENT_ID": "${OAUTH_CLIENT_ID}",
+        "CLIENT_SECRET": "${OAUTH_CLIENT_SECRET}"
+      }
     }
   }
 }
