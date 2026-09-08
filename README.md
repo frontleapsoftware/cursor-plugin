@@ -55,7 +55,7 @@ If you previously installed an older multi-environment Frontleap plugin, uninsta
 | **frontleap-qa-admin** | QA | Platform Admin MCP |
 | **frontleap-qa-client** | QA | Task Configuration / client MCP |
 
-You can install any combination. Each plugin asks for a single `FRONTLEAP_URL` origin for that environment. The existing `frontleap-admin` and `frontleap-client` plugins are the production pair; leave them unchanged and use the `-dev-` / `-qa-` plugins for other environments.
+You can install any combination. Each plugin asks for `FRONTLEAP_URL` plus OAuth client credentials for that environment. The existing `frontleap-admin` and `frontleap-client` plugins are the production pair; leave them unchanged and use the `-dev-` / `-qa-` plugins for other environments.
 
 ## Plugin: frontleap-admin (production)
 
