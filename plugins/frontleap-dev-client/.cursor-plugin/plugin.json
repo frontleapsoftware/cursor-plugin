@@ -1,0 +1,35 @@
+{
+  "name": "frontleap-dev-client",
+  "version": "1.0.0",
+  "description": "Frontleap Task Configuration (client) MCP server for a development Frontleap origin (Clerk OAuth at connect).",
+  "author": {
+    "name": "Thomas Laberge",
+    "email": "thomas.laberge@frontleap.com"
+  },
+  "homepage": "https://github.com/frontleapsoftware/cursor-plugin",
+  "repository": "https://github.com/frontleapsoftware/cursor-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "frontleap",
+    "mcp",
+    "client",
+    "dev"
+  ],
+  "variables": {
+    "type": "object",
+    "properties": {
+      "FRONTLEAP_URL": {
+        "type": "string",
+        "title": "Frontleap development origin",
+        "description": "Public origin for the Frontleap development app you are using (scheme + host only, no path, no trailing slash). Example: https://slug.frontleap.com. The plugin appends the fixed client MCP path.",
+        "examples": [
+          "https://slug.frontleap.com"
+        ]
+      }
+    },
+    "required": [
+      "FRONTLEAP_URL"
+    ]
+  },
+  "mcpServers": "./mcp.json"
+}
