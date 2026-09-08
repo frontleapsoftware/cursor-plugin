@@ -20,7 +20,10 @@
       "FRONTLEAP_URL": {
         "type": "string",
         "title": "Frontleap origin",
-        "description": "Public origin for the Frontleap app you are using (scheme + host only, no path, no trailing slash). The plugin appends the fixed client MCP path."
+        "description": "Public origin for the Frontleap app you are using (scheme + host only, no path, no trailing slash). Example: https://slug.frontleap.com. The plugin appends the fixed client MCP path.",
+        "examples": [
+          "https://slug.frontleap.com"
+        ]
       }
     },
     "required": [

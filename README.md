@@ -61,7 +61,7 @@ One HTTP MCP server. Auth is Clerk OAuth at connect time — no tokens or secret
 
 Set one origin per installed plugin (scheme + host only, no path, no trailing slash), for example:
 
-- `FRONTLEAP_URL` → `https://your-frontleap-origin.example`
+- `FRONTLEAP_URL` → `https://slug.frontleap.com`
 
 Point it at the environment you are using (development, QA, or production). Do not commit real customer hostnames or secrets.
 
