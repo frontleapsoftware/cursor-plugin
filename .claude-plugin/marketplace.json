@@ -1,14 +1,13 @@
 {
-  "name": "frontleap-cursor-plugin",
-  "displayName": "Frontleap",
+  "name": "frontleap",
   "owner": {
     "name": "Frontleap",
     "email": "thomas.laberge@frontleap.com"
   },
   "metadata": {
-    "description": "Frontleap plugins for Cursor and Claude Code (admin and client MCP servers for production, development, and QA)",
+    "description": "Frontleap plugins for Claude Code (admin and client MCP servers for production, development, and QA)",
     "version": "1.3.0",
-    "pluginRoot": "plugins"
+    "pluginRoot": "./plugins"
   },
   "plugins": [
     {
