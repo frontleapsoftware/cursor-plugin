@@ -1,38 +1,46 @@
-# Frontleap Cursor Team Marketplace
+# Frontleap Team Marketplace (Cursor + Claude Code)
 
-This repository is a **Cursor Team Marketplace** only. It is not a single-root plugin repo.
+This repository is a **dual marketplace**: the same six plugins work in **Cursor** and **Claude Code**. It is not a single-root plugin repo.
 
-Team marketplaces require this layout (see [fieldsphere/cursor-team-marketplace-template](https://github.com/fieldsphere/cursor-team-marketplace-template)):
+Team marketplaces require this layout:
 
 ```text
-.cursor-plugin/marketplace.json
+.cursor-plugin/marketplace.json   # Cursor Team Marketplace
+.claude-plugin/marketplace.json   # Claude Code marketplace
 plugins/frontleap-admin/
   .cursor-plugin/plugin.json
-  mcp.json
+  .claude-plugin/plugin.json
+  .mcp.json
 plugins/frontleap-client/
   .cursor-plugin/plugin.json
-  mcp.json
+  .claude-plugin/plugin.json
+  .mcp.json
 plugins/frontleap-dev-admin/
   .cursor-plugin/plugin.json
-  mcp.json
+  .claude-plugin/plugin.json
+  .mcp.json
 plugins/frontleap-dev-client/
   .cursor-plugin/plugin.json
-  mcp.json
+  .claude-plugin/plugin.json
+  .mcp.json
 plugins/frontleap-qa-admin/
   .cursor-plugin/plugin.json
-  mcp.json
+  .claude-plugin/plugin.json
+  .mcp.json
 plugins/frontleap-qa-client/
   .cursor-plugin/plugin.json
-  mcp.json
+  .claude-plugin/plugin.json
+  .mcp.json
 LICENSE
 README.md
 ```
 
 Rules that matter for discovery:
 
-- `metadata.pluginRoot` must be `"plugins"`
-- each plugin `source` must be a bare directory name (for example `"frontleap-admin"`), not `"."` or `"./frontleap-admin"`
-- plugin files live under `plugins/<source>/`, not at the repo root
+- Cursor: `metadata.pluginRoot` must be `"plugins"`; each plugin `source` is a bare directory name (for example `"frontleap-admin"`)
+- Claude Code: `metadata.pluginRoot` is `"./plugins"`; bare `source` names resolve under that root
+- Each plugin ships **one** shared MCP file: `.mcp.json` (Claude’s default). Cursor pins `"mcpServers": "./.mcp.json"` so both clients use the same hosted HTTP + OAuth server
+- Do not add a sibling `mcp.json` with a different payload — dual Cursor + Claude repos that ship both filenames can load the wrong server
 
 ## Import in Cursor
 
@@ -43,6 +51,26 @@ Rules that matter for discovery:
 5. Install the plugins for the environments you need, set one origin per plugin, then connect (Clerk OAuth)
 
 If you previously installed an older multi-environment Frontleap plugin, uninstall it and install the environment-specific admin and/or client plugins instead.
+
+## Install in Claude Code
+
+1. Add the marketplace:
+   ```shell
+   /plugin marketplace add frontleapsoftware/cursor-plugin
+   ```
+2. Install the plugins you need (suffix is the marketplace name `frontleap`):
+   ```shell
+   /plugin install frontleap-admin@frontleap
+   /plugin install frontleap-client@frontleap
+   ```
+   Use the `-dev-` / `-qa-` names for other environments.
+3. Export `FRONTLEAP_URL` in your environment (scheme + host only, no path, no trailing slash), for example:
+   ```bash
+   export FRONTLEAP_URL=https://slug.frontleap.com
+   ```
+4. Run `/reload-plugins`, then authenticate via Clerk OAuth when Claude Code connects to the MCP server (`/mcp`)
+
+Claude Code expands `${FRONTLEAP_URL}` from your shell environment. Cursor prompts for the same variable via the plugin’s install UI.
 
 ## Which plugin to install
 
