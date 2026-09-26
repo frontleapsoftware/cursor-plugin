@@ -1,7 +1,7 @@
 {
   "name": "frontleap-admin",
-  "version": "1.3.0",
-  "description": "Frontleap Platform Admin MCP server for a single Frontleap origin (Clerk OAuth at connect).",
+  "version": "1.4.0",
+  "description": "Frontleap Platform Admin MCP server for Frontleap (https://frontleap.internal.frontleap.com; Clerk OAuth at connect).",
   "author": {
     "name": "Thomas Laberge",
     "email": "thomas.laberge@frontleap.com"
@@ -14,21 +14,5 @@
     "mcp",
     "admin"
   ],
-  "variables": {
-    "type": "object",
-    "properties": {
-      "FRONTLEAP_URL": {
-        "type": "string",
-        "title": "Frontleap origin",
-        "description": "Public origin for the Frontleap app you are using (scheme + host only, no path, no trailing slash). Example: https://slug.frontleap.com. The plugin appends the fixed admin MCP path.",
-        "examples": [
-          "https://slug.frontleap.com"
-        ]
-      }
-    },
-    "required": [
-      "FRONTLEAP_URL"
-    ]
-  },
   "mcpServers": "./.mcp.json"
 }

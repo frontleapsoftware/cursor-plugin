@@ -1,8 +1,0 @@
-{
-  "mcpServers": {
-    "frontleap-dev-admin": {
-      "type": "http",
-      "url": "${FRONTLEAP_URL}/mastra/api/mcp/admin/mcp"
-    }
-  }
-}

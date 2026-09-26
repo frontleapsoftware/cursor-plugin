@@ -5,40 +5,70 @@
     "email": "thomas.laberge@frontleap.com"
   },
   "metadata": {
-    "description": "Frontleap plugins for Claude Code (admin and client MCP servers for production, development, and QA)",
-    "version": "1.3.0",
+    "description": "Frontleap plugins for Claude Code (admin and client MCP servers for Demo, Frontleap, Stella Jones, and Canac origins)",
+    "version": "1.4.0",
     "pluginRoot": "./plugins"
   },
   "plugins": [
     {
+      "name": "frontleap-demo-admin",
+      "source": "frontleap-demo-admin",
+      "description": "Frontleap Platform Admin MCP for Demo (https://demo.internal.frontleap.com)"
+    },
+    {
+      "name": "frontleap-demo-client",
+      "source": "frontleap-demo-client",
+      "description": "Frontleap Task Configuration (client) MCP for Demo (https://demo.internal.frontleap.com)"
+    },
+    {
       "name": "frontleap-admin",
       "source": "frontleap-admin",
-      "description": "Frontleap Platform Admin MCP server for a single Frontleap origin (production)"
+      "description": "Frontleap Platform Admin MCP for Frontleap (https://frontleap.internal.frontleap.com)"
     },
     {
       "name": "frontleap-client",
       "source": "frontleap-client",
-      "description": "Frontleap Task Configuration (client) MCP server for a single Frontleap origin (production)"
+      "description": "Frontleap Task Configuration (client) MCP for Frontleap (https://frontleap.internal.frontleap.com)"
     },
     {
-      "name": "frontleap-dev-admin",
-      "source": "frontleap-dev-admin",
-      "description": "Frontleap Platform Admin MCP server for a development Frontleap origin"
+      "name": "frontleap-stella-jones-admin",
+      "source": "frontleap-stella-jones-admin",
+      "description": "Frontleap Platform Admin MCP for Stella Jones (https://stella-jones.internal.frontleap.com)"
     },
     {
-      "name": "frontleap-dev-client",
-      "source": "frontleap-dev-client",
-      "description": "Frontleap Task Configuration (client) MCP server for a development Frontleap origin"
+      "name": "frontleap-stella-jones-client",
+      "source": "frontleap-stella-jones-client",
+      "description": "Frontleap Task Configuration (client) MCP for Stella Jones (https://stella-jones.internal.frontleap.com)"
     },
     {
-      "name": "frontleap-qa-admin",
-      "source": "frontleap-qa-admin",
-      "description": "Frontleap Platform Admin MCP server for a QA Frontleap origin"
+      "name": "frontleap-canac-dev-admin",
+      "source": "frontleap-canac-dev-admin",
+      "description": "Frontleap Platform Admin MCP for Canac Dev (https://canac.dev.frontleap.com)"
     },
     {
-      "name": "frontleap-qa-client",
-      "source": "frontleap-qa-client",
-      "description": "Frontleap Task Configuration (client) MCP server for a QA Frontleap origin"
+      "name": "frontleap-canac-dev-client",
+      "source": "frontleap-canac-dev-client",
+      "description": "Frontleap Task Configuration (client) MCP for Canac Dev (https://canac.dev.frontleap.com)"
+    },
+    {
+      "name": "frontleap-canac-non-prod-admin",
+      "source": "frontleap-canac-non-prod-admin",
+      "description": "Frontleap Platform Admin MCP for Canac Non-Prod (https://canac.non-prod.frontleap.com)"
+    },
+    {
+      "name": "frontleap-canac-non-prod-client",
+      "source": "frontleap-canac-non-prod-client",
+      "description": "Frontleap Task Configuration (client) MCP for Canac Non-Prod (https://canac.non-prod.frontleap.com)"
+    },
+    {
+      "name": "frontleap-canac-admin",
+      "source": "frontleap-canac-admin",
+      "description": "Frontleap Platform Admin MCP for Canac (https://canac.frontleap.com)"
+    },
+    {
+      "name": "frontleap-canac-client",
+      "source": "frontleap-canac-client",
+      "description": "Frontleap Task Configuration (client) MCP for Canac (https://canac.frontleap.com)"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
-  "name": "frontleap-client",
+  "name": "frontleap-stella-jones-admin",
   "version": "1.4.0",
-  "description": "Frontleap Task Configuration (client) MCP server for Frontleap (https://frontleap.internal.frontleap.com; Clerk OAuth at connect).",
+  "description": "Frontleap Platform Admin MCP server for Stella Jones (https://stella-jones.internal.frontleap.com; Clerk OAuth at connect).",
   "author": {
     "name": "Thomas Laberge",
     "email": "thomas.laberge@frontleap.com"
@@ -12,7 +12,8 @@
   "keywords": [
     "frontleap",
     "mcp",
-    "client"
+    "admin",
+    "stella-jones"
   ],
   "mcpServers": "./.mcp.json"
 }

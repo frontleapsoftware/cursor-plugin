@@ -2,7 +2,7 @@
   "mcpServers": {
     "frontleap-admin": {
       "type": "http",
-      "url": "${FRONTLEAP_URL}/mastra/api/mcp/admin/mcp"
+      "url": "https://frontleap.internal.frontleap.com/mastra/api/mcp/admin/mcp"
     }
   }
 }

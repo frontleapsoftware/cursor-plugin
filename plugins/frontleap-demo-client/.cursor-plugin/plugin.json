@@ -1,7 +1,7 @@
 {
-  "name": "frontleap-client",
+  "name": "frontleap-demo-client",
   "version": "1.4.0",
-  "description": "Frontleap Task Configuration (client) MCP server for Frontleap (https://frontleap.internal.frontleap.com; Clerk OAuth at connect).",
+  "description": "Frontleap Task Configuration (client) MCP server for Demo (https://demo.internal.frontleap.com; Clerk OAuth at connect).",
   "author": {
     "name": "Thomas Laberge",
     "email": "thomas.laberge@frontleap.com"
@@ -12,7 +12,8 @@
   "keywords": [
     "frontleap",
     "mcp",
-    "client"
+    "client",
+    "demo"
   ],
   "mcpServers": "./.mcp.json"
 }

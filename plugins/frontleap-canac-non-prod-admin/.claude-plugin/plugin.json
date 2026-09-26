@@ -1,7 +1,7 @@
 {
-  "name": "frontleap-client",
+  "name": "frontleap-canac-non-prod-admin",
   "version": "1.4.0",
-  "description": "Frontleap Task Configuration (client) MCP server for Frontleap (https://frontleap.internal.frontleap.com; Clerk OAuth at connect).",
+  "description": "Frontleap Platform Admin MCP server for Canac Non-Prod (https://canac.non-prod.frontleap.com; Clerk OAuth at connect).",
   "author": {
     "name": "Thomas Laberge",
     "email": "thomas.laberge@frontleap.com"
@@ -12,7 +12,8 @@
   "keywords": [
     "frontleap",
     "mcp",
-    "client"
-  ],
-  "mcpServers": "./.mcp.json"
+    "admin",
+    "canac",
+    "non-prod"
+  ]
 }

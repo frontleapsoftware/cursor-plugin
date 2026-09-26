@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "frontleap-stella-jones-client": {
+      "type": "http",
+      "url": "https://stella-jones.internal.frontleap.com/mastra/api/mcp/client/mcp"
+    }
+  }
+}
