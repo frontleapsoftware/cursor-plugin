@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "frontleap-demo-admin": {
+      "type": "http",
+      "url": "https://demo.internal.frontleap.com/mastra/api/mcp/admin/mcp"
+    }
+  }
+}

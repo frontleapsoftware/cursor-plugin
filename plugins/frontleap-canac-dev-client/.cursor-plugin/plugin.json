@@ -1,7 +1,7 @@
 {
-  "name": "frontleap-client",
+  "name": "frontleap-canac-dev-client",
   "version": "1.4.0",
-  "description": "Frontleap Task Configuration (client) MCP server for Frontleap (https://frontleap.internal.frontleap.com; Clerk OAuth at connect).",
+  "description": "Frontleap Task Configuration (client) MCP server for Canac Dev (https://canac.dev.frontleap.com; Clerk OAuth at connect).",
   "author": {
     "name": "Thomas Laberge",
     "email": "thomas.laberge@frontleap.com"
@@ -12,7 +12,9 @@
   "keywords": [
     "frontleap",
     "mcp",
-    "client"
+    "client",
+    "canac",
+    "dev"
   ],
   "mcpServers": "./.mcp.json"
 }

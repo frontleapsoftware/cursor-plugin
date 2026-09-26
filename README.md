@@ -1,33 +1,13 @@
 # Frontleap Team Marketplace (Cursor + Claude Code)
 
-This repository is a **dual marketplace**: the same six plugins work in **Cursor** and **Claude Code**. It is not a single-root plugin repo.
+This repository is a **dual marketplace**: the same twelve plugins work in **Cursor** and **Claude Code**. It is not a single-root plugin repo.
 
 Team marketplaces require this layout:
 
 ```text
 .cursor-plugin/marketplace.json   # Cursor Team Marketplace
 .claude-plugin/marketplace.json   # Claude Code marketplace
-plugins/frontleap-admin/
-  .cursor-plugin/plugin.json
-  .claude-plugin/plugin.json
-  .mcp.json
-plugins/frontleap-client/
-  .cursor-plugin/plugin.json
-  .claude-plugin/plugin.json
-  .mcp.json
-plugins/frontleap-dev-admin/
-  .cursor-plugin/plugin.json
-  .claude-plugin/plugin.json
-  .mcp.json
-plugins/frontleap-dev-client/
-  .cursor-plugin/plugin.json
-  .claude-plugin/plugin.json
-  .mcp.json
-plugins/frontleap-qa-admin/
-  .cursor-plugin/plugin.json
-  .claude-plugin/plugin.json
-  .mcp.json
-plugins/frontleap-qa-client/
+plugins/<plugin-name>/
   .cursor-plugin/plugin.json
   .claude-plugin/plugin.json
   .mcp.json
@@ -41,16 +21,17 @@ Rules that matter for discovery:
 - Claude Code: `metadata.pluginRoot` is `"./plugins"`; bare `source` names resolve under that root
 - Each plugin ships **one** shared MCP file: `.mcp.json` (Claude’s default). Cursor pins `"mcpServers": "./.mcp.json"` so both clients use the same hosted HTTP + OAuth server
 - Do not add a sibling `mcp.json` with a different payload — dual Cursor + Claude repos that ship both filenames can load the wrong server
+- Origins are **hardcoded** per plugin (no `FRONTLEAP_URL` install variable)
 
 ## Import in Cursor
 
 1. **Dashboard → Plugins → Team Marketplaces → Add Marketplace → Import from Repo**
 2. Use: `https://github.com/frontleapsoftware/cursor-plugin`
-3. Cursor should detect **6 plugins** (admin + client × production / development / QA)
+3. Cursor should detect **12 plugins** (admin + client × Demo / Frontleap / Stella Jones / Canac Dev / Canac Non-Prod / Canac)
 4. After merging marketplace changes, **Refresh** the marketplace (or re-import) so `marketplace.json` is rescanned
-5. Install the plugins for the environments you need, set one origin per plugin, then connect (Clerk OAuth)
+5. Install the plugins for the environments you need, then connect (Clerk OAuth)
 
-If you previously installed an older multi-environment Frontleap plugin, uninstall it and install the environment-specific admin and/or client plugins instead.
+If you previously installed plugins that asked for `FRONTLEAP_URL`, uninstall them and install the origin-specific plugins instead.
 
 ## Install in Claude Code
 
@@ -58,80 +39,38 @@ If you previously installed an older multi-environment Frontleap plugin, uninsta
    ```shell
    /plugin marketplace add frontleapsoftware/cursor-plugin
    ```
-2. Install the plugins you need (suffix is the marketplace name `frontleap`):
+2. Install the plugins you need (suffix is the marketplace name `frontleap`), for example:
    ```shell
    /plugin install frontleap-admin@frontleap
    /plugin install frontleap-client@frontleap
+   /plugin install frontleap-canac-admin@frontleap
+   /plugin install frontleap-canac-client@frontleap
    ```
-   Use the `-dev-` / `-qa-` names for other environments.
-3. Export `FRONTLEAP_URL` in your environment (scheme + host only, no path, no trailing slash), for example:
-   ```bash
-   export FRONTLEAP_URL=https://slug.frontleap.com
-   ```
-4. Run `/reload-plugins`, then authenticate via Clerk OAuth when Claude Code connects to the MCP server (`/mcp`)
-
-Claude Code expands `${FRONTLEAP_URL}` from your shell environment. Cursor prompts for the same variable via the plugin’s install UI.
+3. Run `/reload-plugins`, then authenticate via Clerk OAuth when Claude Code connects to the MCP server (`/mcp`)
 
 ## Which plugin to install
 
-| Plugin | Environment | Install when you need… |
-| --- | --- | --- |
-| **frontleap-admin** | Production | Platform Admin MCP |
-| **frontleap-client** | Production | Task Configuration / client MCP |
-| **frontleap-dev-admin** | Development | Platform Admin MCP |
-| **frontleap-dev-client** | Development | Task Configuration / client MCP |
-| **frontleap-qa-admin** | QA | Platform Admin MCP |
-| **frontleap-qa-client** | QA | Task Configuration / client MCP |
-
-You can install any combination. Each plugin asks for a single `FRONTLEAP_URL` origin for that environment. The existing `frontleap-admin` and `frontleap-client` plugins are the production pair; leave them unchanged and use the `-dev-` / `-qa-` plugins for other environments.
-
-## Plugin: frontleap-admin (production)
-
-One HTTP MCP server. Auth is Clerk OAuth at connect time — no tokens or secrets in this repo.
-
-| Server | URL |
+| Plugin | Origin |
 | --- | --- |
-| `frontleap-admin` | `${FRONTLEAP_URL}/mastra/api/mcp/admin/mcp` |
+| **frontleap-demo-admin** / **frontleap-demo-client** | `https://demo.internal.frontleap.com` |
+| **frontleap-admin** / **frontleap-client** | `https://frontleap.internal.frontleap.com` |
+| **frontleap-stella-jones-admin** / **frontleap-stella-jones-client** | `https://stella-jones.internal.frontleap.com` |
+| **frontleap-canac-dev-admin** / **frontleap-canac-dev-client** | `https://canac.dev.frontleap.com` |
+| **frontleap-canac-non-prod-admin** / **frontleap-canac-non-prod-client** | `https://canac.non-prod.frontleap.com` |
+| **frontleap-canac-admin** / **frontleap-canac-client** | `https://canac.frontleap.com` |
 
-## Plugin: frontleap-client (production)
+You can install any combination. Each plugin points at a fixed origin and appends the admin or client MCP path.
 
-One HTTP MCP server. Auth is Clerk OAuth at connect time — no tokens or secrets in this repo.
+## MCP paths
 
-| Server | URL |
+Auth is Clerk OAuth at connect time — no tokens or secrets in this repo.
+
+| Role | Path |
 | --- | --- |
-| `frontleap-client` | `${FRONTLEAP_URL}/mastra/api/mcp/client/mcp` |
+| Admin | `/mastra/api/mcp/admin/mcp` |
+| Client | `/mastra/api/mcp/client/mcp` |
 
-## Plugin: frontleap-dev-admin
-
-| Server | URL |
-| --- | --- |
-| `frontleap-dev-admin` | `${FRONTLEAP_URL}/mastra/api/mcp/admin/mcp` |
-
-## Plugin: frontleap-dev-client
-
-| Server | URL |
-| --- | --- |
-| `frontleap-dev-client` | `${FRONTLEAP_URL}/mastra/api/mcp/client/mcp` |
-
-## Plugin: frontleap-qa-admin
-
-| Server | URL |
-| --- | --- |
-| `frontleap-qa-admin` | `${FRONTLEAP_URL}/mastra/api/mcp/admin/mcp` |
-
-## Plugin: frontleap-qa-client
-
-| Server | URL |
-| --- | --- |
-| `frontleap-qa-client` | `${FRONTLEAP_URL}/mastra/api/mcp/client/mcp` |
-
-### Configure
-
-Set one origin per installed plugin (scheme + host only, no path, no trailing slash), for example:
-
-- `FRONTLEAP_URL` → `https://slug.frontleap.com`
-
-Point each plugin at the matching environment origin. Do not commit real customer hostnames or secrets.
+Example full URL for Canac admin: `https://canac.frontleap.com/mastra/api/mcp/admin/mcp`
 
 ## License
 

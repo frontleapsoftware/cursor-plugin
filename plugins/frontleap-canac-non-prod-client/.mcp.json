@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "frontleap-canac-non-prod-client": {
+      "type": "http",
+      "url": "https://canac.non-prod.frontleap.com/mastra/api/mcp/client/mcp"
+    }
+  }
+}

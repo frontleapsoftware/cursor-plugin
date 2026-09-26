@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "frontleap-canac-dev-admin": {
+      "type": "http",
+      "url": "https://canac.dev.frontleap.com/mastra/api/mcp/admin/mcp"
+    }
+  }
+}
